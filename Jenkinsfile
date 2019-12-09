@@ -1,23 +1,12 @@
-pipeline {
-    agent any
-    tools { 
-        maven 'Maven 3.3.9' 
-        jdk 'jdk8' 
-    }
-    stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
-            }
-        }
-
-        stage ('Build') {
-            steps {
-                echo 'This is a minimal pipeline.'
-            }
-        }
-    }
+node ("windows") {
+  stage ('Build') {
+ 
+    git url: 'https://github.com/rajvicky/MovieServices'
+ 
+    withMaven(...) {
+ 
+      bat "mvn clean install"
+ 
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+  }
 }
