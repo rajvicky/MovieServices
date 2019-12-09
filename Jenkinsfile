@@ -1,8 +1,10 @@
-node{
-  stage('SCM Checkout'){
-  git 'https://github.com/rajvicky/MovieServices'
- }
- stage('Complie-Package'){
- sh 'mvn package'
-}
+pipeline { 
+    agent any  
+    stages { 
+        stage('Build') { 
+            steps { 
+               echo 'This is a minimal pipeline.' 
+            }
+        }
+    }
 }
