@@ -1,6 +1,6 @@
 node{
   stage('SCM Checkout'){
-  git 'https://github.com/rajvicky/MovieServices/new/master/Eureka-Server'
+  git 'https://github.com/rajvicky/MovieServices'
  }
  stage('Complie-Package'){
  sh 'mvn package'
