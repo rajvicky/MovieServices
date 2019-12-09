@@ -3,7 +3,7 @@ node ("windows") {
  
     git url: 'https://github.com/rajvicky/MovieServices'
  
-    withMaven(...) {
+    withMaven(globalMavenSettingsConfig: 'globalSettings', mavenSettingsConfig: 'settings') {
  
       bat "mvn clean install"
  
